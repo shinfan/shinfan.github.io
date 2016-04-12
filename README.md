@@ -38,7 +38,7 @@ Next, add this to your pom.xml file
 </dependency>
 ```
 
-For more details you could see the [sample pom](http://shinfan.github.io/sample.pom)
+For more details you could see the [sample pom](http://shinfan.github.io/sample.xml)
 
 Authentication
 --------------
