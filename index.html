@@ -29,18 +29,58 @@ this section to your pom.xml file:</p>
 <pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-title">dependency</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">groupId</span>&gt;</span>com.google.cloud<span class="hljs-tag">&lt;/<span class="hljs-title">groupId</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">artifactId</span>&gt;</span>gcloud-java-pubsub-v1<span class="hljs-tag">&lt;/<span class="hljs-title">artifactId</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">version</span>&gt;</span>0.0.0<span class="hljs-tag">&lt;/<span class="hljs-title">version</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">version</span>&gt;</span>99.1.6-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-title">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">groupId</span>&gt;</span>io.netty<span class="hljs-tag">&lt;/<span class="hljs-title">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">artifactId</span>&gt;</span>netty-tcnative-boringssl-static<span class="hljs-tag">&lt;/<span class="hljs-title">artifactId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">version</span>&gt;</span>1.1.33.Fork13<span class="hljs-tag">&lt;/<span class="hljs-title">version</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">classifier</span>&gt;</span>${os.detected.classifier}<span class="hljs-tag">&lt;/<span class="hljs-title">classifier</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">dependency</span>&gt;</span>
 </code></pre>
+<p>Finally, add those extensions:</p>
+<pre><code><span class="hljs-tag">&lt;<span class="hljs-title">extension</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">groupId</span>&gt;</span>kr.motd.maven<span class="hljs-tag">&lt;/<span class="hljs-title">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">artifactId</span>&gt;</span>os-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-title">artifactId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">version</span>&gt;</span>1.4.0.Final<span class="hljs-tag">&lt;/<span class="hljs-title">version</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">extension</span>&gt;</span>
+</code></pre>
+<p>And plugins:</p>
+<pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-title">plugin</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-title">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">artifactId</span>&gt;</span>maven-compiler-plugin<span class="hljs-tag">&lt;/<span class="hljs-title">artifactId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">version</span>&gt;</span>3.5.1<span class="hljs-tag">&lt;/<span class="hljs-title">version</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">configuration</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">source</span>&gt;</span>1.7<span class="hljs-tag">&lt;/<span class="hljs-title">source</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">target</span>&gt;</span>1.7<span class="hljs-tag">&lt;/<span class="hljs-title">target</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">configuration</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">plugin</span>&gt;</span>
+</code></pre>
+<pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-title">plugin</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">groupId</span>&gt;</span>org.codehaus.mojo<span class="hljs-tag">&lt;/<span class="hljs-title">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">artifactId</span>&gt;</span>exec-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-title">artifactId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">version</span>&gt;</span>1.1<span class="hljs-tag">&lt;/<span class="hljs-title">version</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">executions</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">execution</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">goals</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">goal</span>&gt;</span>exec<span class="hljs-tag">&lt;/<span class="hljs-title">goal</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">goals</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">execution</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">executions</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">configuration</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">mainClass</span>&gt;</span>Your main class<span class="hljs-tag">&lt;/<span class="hljs-title">mainClass</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">configuration</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">plugin</span>&gt;</span>
+</code></pre>
 <p>For more details you could see the <a href="http://shinfan.github.io/sample.xml">sample pom</a></p>
-<h2><a id="Authentication_42"></a>Authentication</h2>
+<h2><a id="Authentication_88"></a>Authentication</h2>
 <p>To authenticate all your API calls, first install and setup the Google Cloud SDK. Once done, you can then run the following command in your terminal:</p>
 <pre><code><span class="hljs-variable">$ </span>gcloud auth login
 </code></pre>
 <p>At this point you are all set to continue.</p>
-<h2><a id="Java_Versions_53"></a>Java Versions</h2>
+<h2><a id="Java_Versions_99"></a>Java Versions</h2>
 <p>Java 7 or above is required for using this client.</p>
-<h2><a id="Examples_59"></a>Examples</h2>
-<p>To see example usage, please read through the <a href="http;//shinfan.github.io/api/">API reference</a>. The documentation for each API method includes simple examples.</p>
+<h2><a id="Examples_105"></a>Examples</h2>
+<p>To see example usage, please read through the <a href="http://shinfan.github.io/api/">API reference</a>. The documentation for each API method includes simple examples.</p>
 
 </body></html>
