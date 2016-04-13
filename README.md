@@ -1,5 +1,5 @@
-Google Cloud Java Client
-==========================
+Google Cloud Java Pub/Sub Client
+================================
 
 Java idiomatic client for [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/) services.
 
@@ -33,8 +33,8 @@ Next, add this to your pom.xml file
 ```xml
 <dependency>
   <groupId>com.google.cloud</groupId>
-  <artifactId>gcloud-java-pubsub-v1</artifactId>
-  <version>99.1.6-SNAPSHOT</version>
+  <artifactId>gcloud-java-pubsub</artifactId>
+  <version>99.2.1-SNAPSHOT</version>
 </dependency>
 <dependency>
 <groupId>io.netty</groupId>
@@ -92,7 +92,7 @@ Authentication
 To authenticate all your API calls, first install and setup the Google Cloud SDK. Once done, you can then run the following command in your terminal:
 
 ```
-$ gcloud auth login
+$ gcloud beta auth application-default login
 ```
 
 At this point you are all set to continue.
@@ -106,4 +106,54 @@ Java 7 or above is required for using this client.
 Examples
 -------------
 
-To see example usage, please read through the [API reference](http://shinfan.github.io/api/). The documentation for each API method includes simple examples.
+```java
+public class PubsubShortSample {
+
+  public static void main(String[] args) throws Exception {
+
+    try (PublisherApi publisher = PublisherApi.defaultInstance();
+        SubscriberApi subscriber = SubscriberApi.defaultInstance()) {
+      int ackDeadlineSeconds = 10;
+      int maxPullMessages = 10;
+      String project = "my-project";
+      String topic = "my-first-topic";
+      String subscription = "my-first-subscription";
+
+      String topicName = PublisherApi.formatTopicName(project, topic);
+      String subscriptionName = SubscriberApi.formatSubscriptionName(project, subscription);
+
+      Topic createdTopic = publisher.createTopic(topicName);
+      System.out.println(String.format("created topic with name %s", createdTopic.getName()));
+
+      PushConfig pushConfig = PushConfig.newBuilder().build();
+      Subscription createdSubscription =
+          subscriber.createSubscription(
+              subscriptionName, topicName, pushConfig, ackDeadlineSeconds);
+      System.out.println(
+          String.format("created subscription with name %s", createdSubscription.getName()));
+
+      PubsubMessage message =
+          PubsubMessage.newBuilder()
+              .setData(ByteString.copyFromUtf8("first message to topic"))
+              .build();
+      PublishResponse response = publisher.publish(topicName, Arrays.asList(message));
+      for (String messageId : response.getMessageIdsList()) {
+        System.out.println(String.format(">>> Sent message with id %s", messageId));
+      }
+
+      PullRequest pullRequest =
+          PullRequest.newBuilder()
+              .setSubscription(subscriptionName)
+              .setMaxMessages(maxPullMessages)
+              .build();
+      PullResponse pullResponse = subscriber.pull(pullRequest);
+      for (ReceivedMessage receivedMessage : pullResponse.getReceivedMessagesList()) {
+        System.out.println(
+            String.format("<<< Received message: %s", receivedMessage.getMessage().getData()));
+      }
+    }
+  }
+}
+```
+
+To see more sample usages, please read through the [API reference](http://shinfan.github.io/api/). The documentation for each API method includes simple examples.
