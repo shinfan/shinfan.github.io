@@ -74,38 +74,31 @@ this section to your pom.xml file:</p>
 </code></pre>
 <p>For more details you could see the <a href="http://shinfan.github.io/sample.xml">sample pom</a></p>
 <h2><a id="Authentication_88"></a>Authentication</h2>
-<p>To authenticate all your API calls, first install and setup the Google Cloud SDK. Once done, you can then run the following command in your terminal:</p>
+<p>To authenticate all your API calls, first install and setup the <a href="https://cloud.google.com/sdk/">Google Cloud SDK</a>.
+Once done, you can then run the following command in your terminal:</p>
 <pre><code>$ gcloud beta auth application-<span class="hljs-default"><span class="hljs-keyword">default</span> login</span>
 </code></pre>
 <p>At this point you are all set to continue.</p>
-<h2><a id="Java_Versions_99"></a>Java Versions</h2>
+<h2><a id="Java_Versions_100"></a>Java Versions</h2>
 <p>Java 7 or above is required for using this client.</p>
-<h2><a id="Examples_105"></a>Examples</h2>
-<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PubsubShortSample</span> </span>{
+<h2><a id="Examples_106"></a>Examples</h2>
+<h4><a id="Publisher_Example_110"></a>Publisher Example:</h4>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PublisherSample</span> </span>{
 
   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception </span>{
 
-    <span class="hljs-keyword">try</span> (PublisherApi publisher = PublisherApi.defaultInstance();
-        SubscriberApi subscriber = SubscriberApi.defaultInstance()) {
-      <span class="hljs-keyword">int</span> ackDeadlineSeconds = <span class="hljs-number">10</span>;
-      <span class="hljs-keyword">int</span> maxPullMessages = <span class="hljs-number">10</span>;
+    <span class="hljs-keyword">try</span> (PublisherApi publisher = PublisherApi.defaultInstance()) {
       String project = <span class="hljs-string">"my-project"</span>;
       String topic = <span class="hljs-string">"my-first-topic"</span>;
-      String subscription = <span class="hljs-string">"my-first-subscription"</span>;
 
+      <span class="hljs-comment">// Create a formatted resource name</span>
       String topicName = PublisherApi.formatTopicName(project, topic);
-      String subscriptionName = SubscriberApi.formatSubscriptionName(project, subscription);
 
+      <span class="hljs-comment">// Create a new topic</span>
       Topic createdTopic = publisher.createTopic(topicName);
       System.out.println(String.format(<span class="hljs-string">"created topic with name %s"</span>, createdTopic.getName()));
 
-      PushConfig pushConfig = PushConfig.newBuilder().build();
-      Subscription createdSubscription =
-          subscriber.createSubscription(
-              subscriptionName, topicName, pushConfig, ackDeadlineSeconds);
-      System.out.println(
-          String.format(<span class="hljs-string">"created subscription with name %s"</span>, createdSubscription.getName()));
-
+      <span class="hljs-comment">// Create a PubSub message and publish it to the topic</span>
       PubsubMessage message =
           PubsubMessage.newBuilder()
               .setData(ByteString.copyFromUtf8(<span class="hljs-string">"first message to topic"</span>))
@@ -114,12 +107,42 @@ this section to your pom.xml file:</p>
       <span class="hljs-keyword">for</span> (String messageId : response.getMessageIdsList()) {
         System.out.println(String.format(<span class="hljs-string">"&gt;&gt;&gt; Sent message with id %s"</span>, messageId));
       }
+    }
+  }
+}
+</code></pre>
+<h4><a id="Subscriber_Example_141"></a>Subscriber Example:</h4>
+<pre><code class="language-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SubscriberSample</span> </span>{
 
+  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception </span>{
+
+    <span class="hljs-keyword">try</span> (SubscriberApi subscriber = SubscriberApi.defaultInstance()) {
+      <span class="hljs-keyword">int</span> ackDeadlineSeconds = <span class="hljs-number">10</span>;
+      <span class="hljs-keyword">int</span> maxPullMessages = <span class="hljs-number">10</span>;
+      String project = <span class="hljs-string">"my-project"</span>;
+      String topic = <span class="hljs-string">"my-first-topic"</span>;
+      String subscription = <span class="hljs-string">"my-first-subscription"</span>;
+
+      <span class="hljs-comment">// Create formatted resource names</span>
+      String topicName = PublisherApi.formatTopicName(project, topic);
+      String subscriptionName = SubscriberApi.formatSubscriptionName(project, subscription);
+
+      <span class="hljs-comment">// Create a subscription to the topic using the default configuration</span>
+      PushConfig pushConfig = PushConfig.newBuilder().build();
+      Subscription createdSubscription =
+          subscriber.createSubscription(
+              subscriptionName, topicName, pushConfig, ackDeadlineSeconds);
+      System.out.println(
+          String.format(<span class="hljs-string">"created subscription with name %s"</span>, createdSubscription.getName()));
+
+      <span class="hljs-comment">// Create a PullRequest object for our subscription</span>
       PullRequest pullRequest =
           PullRequest.newBuilder()
               .setSubscription(subscriptionName)
               .setMaxMessages(maxPullMessages)
               .build();
+
+      <span class="hljs-comment">// Retrieve published messages</span>
       PullResponse pullResponse = subscriber.pull(pullRequest);
       <span class="hljs-keyword">for</span> (ReceivedMessage receivedMessage : pullResponse.getReceivedMessagesList()) {
         System.out.println(
@@ -129,6 +152,7 @@ this section to your pom.xml file:</p>
   }
 }
 </code></pre>
-<p>To see more sample usages, please read through the <a href="http://shinfan.github.io/api/">API reference</a>. The documentation for each API method includes simple examples.</p>
+<p>To see more sample usages, please read through the <a href="http://shinfan.github.io/api/">API reference</a>.
+The documentation for each API method includes simple examples.</p>
 
 </body></html>
