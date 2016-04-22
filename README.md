@@ -11,149 +11,91 @@ This client supports the following Google Cloud Platform services:
 - Publisher API
 - Subscriber API
 
+Prerequisites
+----------
+
+- [Java 7](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)
+- [Apache Maven](https://maven.apache.org/)
+
 Installation
 ----------
-Currently the latest pub/sub artifact has been published to our internal repo. To install it add
-this section to your pom.xml file:
-```xml
-<repositories>
-    <repository>
-      <id>gapi</id>
-      <name>Gapi Repository</name>
-      <layout>default</layout>
-      <url>http://104.197.230.53:8081/nexus/content/repositories/snapshots</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-</repositories>
-```
-
-Next, add this to your pom.xml file
-```xml
-<dependency>
-  <groupId>com.google.cloud</groupId>
-  <artifactId>gcloud-java-pubsub</artifactId>
-  <version>99.2.1-SNAPSHOT</version>
-</dependency>
-<dependency>
-<groupId>io.netty</groupId>
-  <artifactId>netty-tcnative-boringssl-static</artifactId>
-  <version>1.1.33.Fork13</version>
-  <classifier>${os.detected.classifier}</classifier>
-</dependency>
-```
-
-Finally, add those extensions:
-```
-<extension>
-  <groupId>kr.motd.maven</groupId>
-  <artifactId>os-maven-plugin</artifactId>
-  <version>1.4.0.Final</version>
-</extension>
-```
-
-And plugins:
-
-```xml
-<plugin>
-  <groupId>org.apache.maven.plugins</groupId>
-  <artifactId>maven-compiler-plugin</artifactId>
-  <version>3.5.1</version>
-  <configuration>
-    <source>1.7</source>
-    <target>1.7</target>
-  </configuration>
-</plugin>
-```
-```xml
-<plugin>
-  <groupId>org.codehaus.mojo</groupId>
-  <artifactId>exec-maven-plugin</artifactId>
-  <version>1.1</version>
-  <executions>
-    <execution>
-    <goals>
-    <goal>exec</goal>
-    </goals>
-    </execution>
-  </executions>
-  <configuration>
-    <mainClass>Your main class</mainClass>
-  </configuration>
-</plugin>
-```
-
-For more details you could see the [sample pom](http://shinfan.github.io/sample.xml)
+Currently the latest pub/sub artifact has been published to our internal repo.
+To install it, use this [pom file](http://shinfan.github.io/pom.xml) as a quick starting point.
+##### Note
+Replace "{ Main class }" with your own main class path.
 
 Authentication
 --------------
 
-To authenticate all your API calls, first install and setup the Google Cloud SDK. Once done, you can then run the following command in your terminal:
+To authenticate all your API calls, first install and setup the [Google Cloud SDK](https://cloud.google.com/sdk/).
+After that is installed, run the following command in your terminal:
 
 ```
-$ gcloud beta auth application-default login
+$ gcloud auth login
 ```
-
-At this point you are all set to continue.
-
-Java Versions
--------------
-
-Java 7 or above is required for using this client.
-
+At this point, you are now authenticated to make calls to Pub/Sub and other Google Cloud services.
 
 Examples
 -------------
 
 ```java
-public class PubsubShortSample {
+import com.google.cloud.pubsub.spi.v1.PublisherApi;
+import com.google.pubsub.v1.Topic;
+
+public class PubSubSample {
 
   public static void main(String[] args) throws Exception {
 
-    try (PublisherApi publisher = PublisherApi.defaultInstance();
-        SubscriberApi subscriber = SubscriberApi.defaultInstance()) {
-      int ackDeadlineSeconds = 10;
-      int maxPullMessages = 10;
-      String project = "my-project";
+    try (PublisherApi publisher = PublisherApi.defaultInstance()) {
+      String project = "{Your project name}";
       String topic = "my-first-topic";
-      String subscription = "my-first-subscription";
 
       String topicName = PublisherApi.formatTopicName(project, topic);
-      String subscriptionName = SubscriberApi.formatSubscriptionName(project, subscription);
-
       Topic createdTopic = publisher.createTopic(topicName);
       System.out.println(String.format("created topic with name %s", createdTopic.getName()));
-
-      PushConfig pushConfig = PushConfig.newBuilder().build();
-      Subscription createdSubscription =
-          subscriber.createSubscription(
-              subscriptionName, topicName, pushConfig, ackDeadlineSeconds);
-      System.out.println(
-          String.format("created subscription with name %s", createdSubscription.getName()));
-
-      PubsubMessage message =
-          PubsubMessage.newBuilder()
-              .setData(ByteString.copyFromUtf8("first message to topic"))
-              .build();
-      PublishResponse response = publisher.publish(topicName, Arrays.asList(message));
-      for (String messageId : response.getMessageIdsList()) {
-        System.out.println(String.format(">>> Sent message with id %s", messageId));
-      }
-
-      PullRequest pullRequest =
-          PullRequest.newBuilder()
-              .setSubscription(subscriptionName)
-              .setMaxMessages(maxPullMessages)
-              .build();
-      PullResponse pullResponse = subscriber.pull(pullRequest);
-      for (ReceivedMessage receivedMessage : pullResponse.getReceivedMessagesList()) {
-        System.out.println(
-            String.format("<<< Received message: %s", receivedMessage.getMessage().getData()));
-      }
     }
   }
 }
 ```
 
-To see more sample usages, please read through the [API reference](http://shinfan.github.io/api/). The documentation for each API method includes simple examples.
+To see more sample usages, please read through the [API reference](http://shinfan.github.io/api/).
+
+The documentation for each API method includes simple examples.
+
+
+Execution
+--------------
+
+To execute your client app from the command line, you need to add your main class path to the pom file
+(see the Installation section).
+Once done, run the following command:
+
+```
+$ mvn -e exec:java
+```
+
+You can also execute your app in your IDEs. Note there is [a known compatibility issue](https://github.com/trustin/os-maven-plugin#issues-with-eclipse-m2e-or-other-ides)
+with Eclipse and maven-os-plugin.
+
+
+Troubleshooting
+-------------
+
+##### "Failed to transport ... {os.detected.classifier} ..." error from my IDE.
+
+It is a known compatibility issue. You can either execute your app in your terminal as a work-around, or fix the problem by following the instructions [here](https://github.com/trustin/os-maven-plugin#issues-with-eclipse-m2e-or-other-ides).
+
+##### "Jetty ALPN/NPN has not been properly configured."
+
+This error is caused by the missing dependency of netty-tcnative-boringssl-static.
+There are three options to work-around this issue:
+
+- Execute your app via the command line (see the instructions in the Execution section).
+- Follow the instructions [here](https://github.com/trustin/os-maven-plugin#issues-with-eclipse-m2e-or-other-ides)
+  to add the plugin to your IDE.
+- Manually replace ${os.detected.classifier} in the [pom file](http://shinfan.github.io/pom.xml)
+  with the correct value. You can find the correct value by inspecting the output of a call to 'mvn compile'.
+
+##### API call returns status of PERMISSION_DENIED.
+
+Check your project name. You will see this error if anyone has ever created a project with the same name before.

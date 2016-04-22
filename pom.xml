@@ -7,6 +7,9 @@
     <version>7</version>
   </parent>
   <repositories>
+    <!-- The following repository section is needed to fetch the special version of
+         gcloud-java-pubsub for the usability study, because it hasn't been published
+         to Sonatype.-->
     <repository>
       <id>gapi</id>
       <name>Gapi Repository</name>
@@ -23,11 +26,17 @@
   <packaging>jar</packaging>
   <name>Pubsub Client App</name>
   <dependencies>
+    <!-- The following dependency is the Pub/Sub java client. -->
     <dependency>
-      <groupId>com.google.gcloud</groupId>
+      <groupId>com.google.cloud</groupId>
       <artifactId>gcloud-java-pubsub</artifactId>
-      <version>99.99.99-SNAPSHOT</version>
+      <version>99.2.1-SNAPSHOT</version>
     </dependency>
+    <!-- The following dependency needs to be present in order to provide ALPN, which is required
+         for gRPC to work. Note that it is platform-dependent. We determine the platform using
+         kr.motd.maven:os-maven-plugin, which sets os.detected.classifier.
+         Also note that some IDEs (e.g. Eclipse) won't always process this correctly.
+         See the main readme for more details on working around that particular issue. -->
     <dependency>
       <groupId>io.netty</groupId>
       <artifactId>netty-tcnative-boringssl-static</artifactId>
@@ -37,7 +46,8 @@
   </dependencies>
   <build>
     <extensions>
-      <!-- Use os-maven-plugin to initialize the "os.detected" properties -->
+      <!-- The following os-maven-plugin is needed to initialize the "os.detected" properties.
+           See the note on the netty-tcnative-boringssl-static dependency for more details. -->
       <extension>
         <groupId>kr.motd.maven</groupId>
         <artifactId>os-maven-plugin</artifactId>
@@ -45,6 +55,7 @@
       </extension>
     </extensions>
     <plugins>
+      <!-- The following maven plugin is needed to configure the compiler to use Java 1.7. -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -54,6 +65,8 @@
           <target>1.7</target>
         </configuration>
       </plugin>
+      <!-- The following plugin is necessary if you need to execute your app from the
+           command line. -->
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
@@ -62,7 +75,9 @@
           <goals><goal>exec</goal></goals>
         </execution></executions>
         <configuration>
-          <mainClass>com.google.pubsub.client.app.CreateTopic</mainClass>
+          <!-- Replace this with your full main class path.
+               eg: com.google.pubsub.client.app.CreateTopic -->
+          <mainClass>{ Main class }</mainClass>
         </configuration>
       </plugin>
     </plugins>
