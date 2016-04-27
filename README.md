@@ -8,8 +8,8 @@ Java idiomatic client for [Google Cloud Pub/Sub](https://cloud.google.com/pubsub
 
 This client supports the following Google Cloud Platform services:
 
-- Publisher API
-- Subscriber API
+- [Publisher API](http://shinfan.github.io/api/index.html?com/google/cloud/pubsub/spi/v1/PublisherApi.html)
+- [Subscriber API](http://shinfan.github.io/api/index.html?com/google/cloud/pubsub/spi/v1/SubscriberApi.html)
 
 Prerequisites
 ----------
@@ -58,7 +58,7 @@ public class PubSubSample {
 }
 ```
 
-To see more sample usages, please read through the [API reference](http://shinfan.github.io/api/).
+To see more sample usages, please read through the [API reference](http://shinfan.github.io/api/index.html?com/google/cloud/pubsub/spi/v1/package-summary.html).
 
 The documentation for each API method includes simple examples.
 
@@ -68,11 +68,14 @@ Execution
 
 To execute your client app from the command line, you need to add your main class path to the pom file
 (see the Installation section).
-Once done, run the following command:
+Once done, run the following commands:
 
 ```
+$ mvn compile
 $ mvn -e exec:java
 ```
+
+Note that you need to re-run `mvn compile` every time you make a change before executing `mvn -e exec:java` again.
 
 You can also execute your app in your IDEs. Note there is [a known compatibility issue](https://github.com/trustin/os-maven-plugin#issues-with-eclipse-m2e-or-other-ides)
 with Eclipse and maven-os-plugin.

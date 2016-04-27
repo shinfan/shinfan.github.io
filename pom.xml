@@ -30,17 +30,17 @@
     <dependency>
       <groupId>com.google.cloud</groupId>
       <artifactId>gcloud-java-pubsub</artifactId>
-      <version>99.2.1-SNAPSHOT</version>
+      <version>99.2.1.1-SNAPSHOT</version>
     </dependency>
     <!-- The following dependency needs to be present in order to provide ALPN, which is required
          for gRPC to work. Note that it is platform-dependent. We determine the platform using
-         kr.motd.maven:os-maven-plugin, which sets os.detected.classifier.
-         Also note that some IDEs (e.g. Eclipse) won't always process this correctly.
-         See the main readme for more details on working around that particular issue. -->
+         kr.motd.maven:os-maven-plugin, which sets os.detected.classifier. -->
     <dependency>
       <groupId>io.netty</groupId>
       <artifactId>netty-tcnative-boringssl-static</artifactId>
       <version>1.1.33.Fork13</version>
+      <!-- Eclipse may mark an error on this line. See the main readme for more details on working
+	   around this particular issue. -->
       <classifier>${os.detected.classifier}</classifier>
     </dependency>
   </dependencies>

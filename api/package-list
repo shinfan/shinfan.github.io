@@ -4,6 +4,5 @@ com.google.api.gax.grpc
 com.google.api.gax.protobuf
 com.google.api.gax.testing
 com.google.cloud.pubsub.spi.v1
-com.google.cloud.pubsub.testing
 com.google.protobuf
 com.google.pubsub.v1
