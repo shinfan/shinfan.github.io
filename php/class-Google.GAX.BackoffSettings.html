@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Google\GAX\BackoffSettings</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Google.html">
+						Google<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Google.GAX.html">
+						GAX<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Google.GAX.Testing.html">
+						Testing					</a>
+
+						</li>
+							</ul></li></ul></li>
+				<li>
+					<a href="namespace-Jison.html">
+						Jison					</a>
+
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Google.GAX.ApiCallable.html">ApiCallable</a></li>
+				<li class="active"><a href="class-Google.GAX.BackoffSettings.html">BackoffSettings</a></li>
+				<li><a href="class-Google.GAX.CallSettings.html">CallSettings</a></li>
+				<li><a href="class-Google.GAX.GrpcBootstrap.html">GrpcBootstrap</a></li>
+				<li><a href="class-Google.GAX.GrpcConstants.html">GrpcConstants</a></li>
+				<li><a href="class-Google.GAX.PageAccessor.html">PageAccessor</a></li>
+				<li><a href="class-Google.GAX.PageStreamingDescriptor.html">PageStreamingDescriptor</a></li>
+				<li><a href="class-Google.GAX.Parser.html">Parser</a></li>
+				<li><a href="class-Google.GAX.PathTemplate.html">PathTemplate</a></li>
+				<li><a href="class-Google.GAX.RetrySettings.html">RetrySettings</a></li>
+			</ul>
+
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Google.GAX.ApiException.html">ApiException</a></li>
+				<li><a href="class-Google.GAX.ValidationException.html">ValidationException</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Google.GAX.html" title="Summary of Google\GAX"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class BackoffSettings</h1>
+
+
+	<div class="description">
+	<p>Holds the parameters used for exponential backoff logic.</p>
+
+<p>The "total timeout" parameter has ultimate control over how long the logic should
+keep trying the remote call until it gives up completely. The higher the total
+timeout, the more retries can be attempted. The other settings are considered
+more advanced.</p>
+
+<p>Retry delay and timeout start at specific values, and are tracked separately from
+each other. The very first call (before any retries) will use the initial timeout.</p>
+
+<p>If the last remote call is a failure, then the retrier will wait for the current
+retry delay before attempting another call, and then the retry delay will be
+multiplied by the retry delay multiplier for the next failure. The timeout will
+not be affected, except in the case where the timeout would result in a deadline
+past the total timeout; in that circumstance, a new timeout value is computed
+which will terminate the call when the total time is up.</p>
+
+<p>If the last remote call is a timeout, then the retrier will compute a new timeout
+and make another call. The new timeout is computed by multiplying the current
+timeout by the timeout multiplier, but if that results in a deadline after the
+total timeout, then a new timeout value is computed which will terminate the call
+when the total time is up.</p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Google.html">Google</a>\<a href="namespace-Google.GAX.html">GAX</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Google.GAX.BackoffSettings.html#36-169" title="Go to source code">BackoffSettings.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="fromSnakeCase" id="_fromSnakeCase">
+
+		<td class="attributes"><code>
+			 public static
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fromSnakeCase">#</a>
+		<code><a href="source-class-Google.GAX.BackoffSettings.html#70-94" title="Go to source code">fromSnakeCase</a>( <span>array <var>$settings</var></span> )</code>
+
+		<div class="description short">
+			<p>Constructs an instance from snake-case parameters.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Constructs an instance from snake-case parameters.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$settings</var></dt>
+					<dd><p>{
+    Required. Settings for configuring the backoff settings</p></dd>
+				</dl></div>
+
+
+
+				<h4>Type</h4>
+				<div class="list">
+						integer $initial_retry_delay_millis The initial delay of retry in milliseconds.<br>
+						integer $retry_delay_multiplier The exponential multiplier of retry delay.<br>
+						integer $max_retry_delay_millis The max delay of retry in milliseconds.<br>
+						integer $initial_rpc_timeout_millis The initial timeout of rpc call in milliseconds.<br>
+						integer $rpc_timeout_multiplier The exponential multiplier of rpc timeout.<br>
+						integer $max_rpc_timeout_millis The max timout of rpc call in milliseconds.<br>
+						<p>integer $total_timeout_millis The max accumulative timeout in total.
+}</p><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Google.GAX.BackoffSettings.html#96-121" title="Go to source code">__construct</a>( <span>array <var>$settings</var></span> )</code>
+
+		<div class="description short">
+			<p>Constructs an instance.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Constructs an instance.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$settings</var></dt>
+					<dd><p>{
+    Required. Settings for configuring the backoff settings</p></dd>
+				</dl></div>
+
+
+
+				<h4>Type</h4>
+				<div class="list">
+						integer $initialRetryDelayMillis The initial delay of retry in milliseconds.<br>
+						integer $retryDelayMultiplier The exponential multiplier of retry delay.<br>
+						integer $maxRetryDelayMillis The max delay of retry in milliseconds.<br>
+						integer $initialRpcTimeoutMillis The initial timeout of rpc call in milliseconds.<br>
+						integer $rpcTimeoutMultiplier The exponential multiplier of rpc timeout.<br>
+						integer $maxRpcTimeoutMillis The max timout of rpc call in milliseconds.<br>
+						<p>integer $totalTimeoutMillis The max accumulative timeout in total.
+}</p><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getInitialRetryDelayMillis" id="_getInitialRetryDelayMillis">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getInitialRetryDelayMillis">#</a>
+		<code><a href="source-class-Google.GAX.BackoffSettings.html#123-126" title="Go to source code">getInitialRetryDelayMillis</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRetryDelayMultiplier" id="_getRetryDelayMultiplier">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRetryDelayMultiplier">#</a>
+		<code><a href="source-class-Google.GAX.BackoffSettings.html#128-131" title="Go to source code">getRetryDelayMultiplier</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMaxRetryDelayMillis" id="_getMaxRetryDelayMillis">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMaxRetryDelayMillis">#</a>
+		<code><a href="source-class-Google.GAX.BackoffSettings.html#133-136" title="Go to source code">getMaxRetryDelayMillis</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getInitialRpcTimeoutMillis" id="_getInitialRpcTimeoutMillis">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getInitialRpcTimeoutMillis">#</a>
+		<code><a href="source-class-Google.GAX.BackoffSettings.html#138-141" title="Go to source code">getInitialRpcTimeoutMillis</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRpcTimeoutMultiplier" id="_getRpcTimeoutMultiplier">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRpcTimeoutMultiplier">#</a>
+		<code><a href="source-class-Google.GAX.BackoffSettings.html#143-146" title="Go to source code">getRpcTimeoutMultiplier</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getMaxRpcTimeoutMillis" id="_getMaxRpcTimeoutMillis">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getMaxRpcTimeoutMillis">#</a>
+		<code><a href="source-class-Google.GAX.BackoffSettings.html#148-151" title="Go to source code">getMaxRpcTimeoutMillis</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getTotalTimeoutMillis" id="_getTotalTimeoutMillis">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getTotalTimeoutMillis">#</a>
+		<code><a href="source-class-Google.GAX.BackoffSettings.html#153-156" title="Go to source code">getTotalTimeoutMillis</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

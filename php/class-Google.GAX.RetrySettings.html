@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Google\GAX\RetrySettings</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Google.html">
+						Google<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Google.GAX.html">
+						GAX<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Google.GAX.Testing.html">
+						Testing					</a>
+
+						</li>
+							</ul></li></ul></li>
+				<li>
+					<a href="namespace-Jison.html">
+						Jison					</a>
+
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Google.GAX.ApiCallable.html">ApiCallable</a></li>
+				<li><a href="class-Google.GAX.BackoffSettings.html">BackoffSettings</a></li>
+				<li><a href="class-Google.GAX.CallSettings.html">CallSettings</a></li>
+				<li><a href="class-Google.GAX.GrpcBootstrap.html">GrpcBootstrap</a></li>
+				<li><a href="class-Google.GAX.GrpcConstants.html">GrpcConstants</a></li>
+				<li><a href="class-Google.GAX.PageAccessor.html">PageAccessor</a></li>
+				<li><a href="class-Google.GAX.PageStreamingDescriptor.html">PageStreamingDescriptor</a></li>
+				<li><a href="class-Google.GAX.Parser.html">Parser</a></li>
+				<li><a href="class-Google.GAX.PathTemplate.html">PathTemplate</a></li>
+				<li class="active"><a href="class-Google.GAX.RetrySettings.html">RetrySettings</a></li>
+			</ul>
+
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Google.GAX.ApiException.html">ApiException</a></li>
+				<li><a href="class-Google.GAX.ValidationException.html">ValidationException</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Google.GAX.html" title="Summary of Google\GAX"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class RetrySettings</h1>
+
+
+	<div class="description">
+	<p>Holds the parameters for retry and timeout logic with exponential backoff. Actual
+implementation of the logic is elsewhere.</p>
+
+<p>The intent of these settings is to be used with a call to a remote server, which
+could either fail (and return an error code) or not respond (and cause a timeout).
+When there is a failure or timeout, the logic should keep trying until the total
+timeout has passed.</p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Google.html">Google</a>\<a href="namespace-Google.GAX.html">GAX</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Google.GAX.RetrySettings.html#34-84" title="Go to source code">RetrySettings.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="inherit" id="_inherit">
+
+		<td class="attributes"><code>
+			 public static
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_inherit">#</a>
+		<code><a href="source-class-Google.GAX.RetrySettings.html#49-58" title="Go to source code">inherit</a>( )</code>
+
+		<div class="description short">
+			<p>Create a special instance that indicates that the retry settings should
+be inherited from defaults.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Create a special instance that indicates that the retry settings should
+be inherited from defaults.</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Google.GAX.RetrySettings.html#60-68" title="Go to source code">__construct</a>( <span> <var>$retryableCodes</var></span>, <span> <var>$backoffSettings</var></span> )</code>
+
+		<div class="description short">
+			<p>Construct an instance.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Construct an instance.</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRetryableCodes" id="_getRetryableCodes">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRetryableCodes">#</a>
+		<code><a href="source-class-Google.GAX.RetrySettings.html#70-73" title="Go to source code">getRetryableCodes</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getBackoffSettings" id="_getBackoffSettings">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getBackoffSettings">#</a>
+		<code><a href="source-class-Google.GAX.RetrySettings.html#75-78" title="Go to source code">getBackoffSettings</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="shouldInherit" id="_shouldInherit">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_shouldInherit">#</a>
+		<code><a href="source-class-Google.GAX.RetrySettings.html#80-83" title="Go to source code">shouldInherit</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class Google\GAX\CallSettings</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-Google.html">
+						Google<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-Google.GAX.html">
+						GAX<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Google.GAX.Testing.html">
+						Testing					</a>
+
+						</li>
+							</ul></li></ul></li>
+				<li>
+					<a href="namespace-Jison.html">
+						Jison					</a>
+
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Google.GAX.ApiCallable.html">ApiCallable</a></li>
+				<li><a href="class-Google.GAX.BackoffSettings.html">BackoffSettings</a></li>
+				<li class="active"><a href="class-Google.GAX.CallSettings.html">CallSettings</a></li>
+				<li><a href="class-Google.GAX.GrpcBootstrap.html">GrpcBootstrap</a></li>
+				<li><a href="class-Google.GAX.GrpcConstants.html">GrpcConstants</a></li>
+				<li><a href="class-Google.GAX.PageAccessor.html">PageAccessor</a></li>
+				<li><a href="class-Google.GAX.PageStreamingDescriptor.html">PageStreamingDescriptor</a></li>
+				<li><a href="class-Google.GAX.Parser.html">Parser</a></li>
+				<li><a href="class-Google.GAX.PathTemplate.html">PathTemplate</a></li>
+				<li><a href="class-Google.GAX.RetrySettings.html">RetrySettings</a></li>
+			</ul>
+
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-Google.GAX.ApiException.html">ApiException</a></li>
+				<li><a href="class-Google.GAX.ValidationException.html">ValidationException</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Google.GAX.html" title="Summary of Google\GAX"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class CallSettings</h1>
+
+
+	<div class="description">
+	<p>Encapsulates the call settings for an API call.</p>
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Google.html">Google</a>\<a href="namespace-Google.GAX.html">GAX</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-Google.GAX.CallSettings.html#37-232" title="Go to source code">CallSettings.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="load" id="_load">
+
+		<td class="attributes"><code>
+			 public static
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_load">#</a>
+		<code><a href="source-class-Google.GAX.CallSettings.html#48-95" title="Go to source code">load</a>( <span>string <var>$serviceName</var></span>, <span>array <var>$clientConfig</var></span>, <span>array <var>$retryingOverrides</var></span>, <span>array <var>$statusCodes</var></span>, <span>integer <var>$timeoutMillis</var></span>, <span> <var>$pageStreamingDescriptors</var></span> )</code>
+
+		<div class="description short">
+			<p>Constructs an array mapping method names to CallSettings.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Constructs an array mapping method names to CallSettings.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$serviceName</var></dt>
+					<dd><p>The fully-qualified name of this service, used as a key into
+    the client config file.</p></dd>
+					<dt><var>$clientConfig</var></dt>
+					<dd>An array parsed from the standard API client config file.</dd>
+					<dt><var>$retryingOverrides</var></dt>
+					<dd><p>A dictionary of method names to RetrySettings that
+    override those specified in $clientConfig.</p></dd>
+					<dt><var>$statusCodes</var></dt>
+					<dd><p>An array which maps the strings referring to response status
+    codes to the PHP objects representing those codes.</p></dd>
+					<dt><var>$timeoutMillis</var></dt>
+					<dd><p>The timeout (in milliseconds) to use for calls that don't
+    have a retry configured.</p></dd>
+					<dt><var>$pageStreamingDescriptors</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="createInternal" id="_createInternal">
+
+		<td class="attributes"><code>
+			 public static
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_createInternal">#</a>
+		<code><a href="source-class-Google.GAX.CallSettings.html#145-155" title="Go to source code">createInternal</a>( <span> <var>$settings</var></span> )</code>
+
+		<div class="description short">
+			<p>Used internally to create instances of CallSettings.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Used internally to create instances of CallSettings.</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-Google.GAX.CallSettings.html#157-181" title="Go to source code">__construct</a>( <span>array <var>$settings</var></span> )</code>
+
+		<div class="description short">
+			<p>Construct an instance.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Construct an instance.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$settings</var></dt>
+					<dd>$options {</dd>
+				</dl></div>
+
+
+
+				<h4>Type</h4>
+				<div class="list">
+						<p>\Google\GAX\RetrySettings $retrySettings
+          Retry settings to use for this method. If present, then
+          $timeout is ignored.</p><br>
+						<p>integer $timeoutMillis
+          Timeout to use for the call. Only used if $retrySettings
+          is not set.
+}</p><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getTimeoutMillis" id="_getTimeoutMillis">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getTimeoutMillis">#</a>
+		<code><a href="source-class-Google.GAX.CallSettings.html#183-186" title="Go to source code">getTimeoutMillis</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRetrySettings" id="_getRetrySettings">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRetrySettings">#</a>
+		<code><a href="source-class-Google.GAX.CallSettings.html#188-191" title="Go to source code">getRetrySettings</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getPageStreamingDescriptor" id="_getPageStreamingDescriptor">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getPageStreamingDescriptor">#</a>
+		<code><a href="source-class-Google.GAX.CallSettings.html#193-196" title="Go to source code">getPageStreamingDescriptor</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="merge" id="_merge">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_merge">#</a>
+		<code><a href="source-class-Google.GAX.CallSettings.html#198-231" title="Go to source code">merge</a>( <span><code><a href="class-Google.GAX.CallSettings.html">Google\GAX\CallSettings</a></code> <var>$otherSettings</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Returns a new CallSettings merged from this and a CallOptions object.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns a new CallSettings merged from this and a CallOptions object.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$otherSettings</var></dt>
+					<dd><p>A CallSettings whose values override those in this object. If
+    null, then a copy of this object is returned.</p></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+	<table class="summary constants" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="INHERIT_TIMEOUT" id="INHERIT_TIMEOUT">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Google.GAX.CallSettings.html#42" title="Go to source code"><b>INHERIT_TIMEOUT</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#INHERIT_TIMEOUT" class="anchor">#</a>
+				<code>-<span class="php-num">1</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
