@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class google\pubsub\v1\SubscriberClient</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-google.html">
+						google					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Google.html">
+						Google<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-google.api.html">
+						api					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Google.GAX.html">
+						GAX<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Google.GAX.Testing.html">
+						Testing					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-google.protobuf.html">
+						protobuf					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-google.pubsub.html">
+						pubsub<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-google.pubsub.v1.html">
+						v1<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-google.pubsub.v1.PubsubMessage.html">
+						PubsubMessage					</a>
+
+						</li>
+				<li>
+					<a href="namespace-google.pubsub.v1.PushConfig.html">
+						PushConfig					</a>
+
+						</li>
+							</ul></li></ul></li></ul></li>
+				<li>
+					<a href="namespace-Jison.html">
+						Jison					</a>
+
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-google.pubsub.v1.AcknowledgeRequest.html">AcknowledgeRequest</a></li>
+				<li><a href="class-google.pubsub.v1.DeleteSubscriptionRequest.html">DeleteSubscriptionRequest</a></li>
+				<li><a href="class-google.pubsub.v1.DeleteTopicRequest.html">DeleteTopicRequest</a></li>
+				<li><a href="class-google.pubsub.v1.GetSubscriptionRequest.html">GetSubscriptionRequest</a></li>
+				<li><a href="class-google.pubsub.v1.GetTopicRequest.html">GetTopicRequest</a></li>
+				<li><a href="class-google.pubsub.v1.ListSubscriptionsRequest.html">ListSubscriptionsRequest</a></li>
+				<li><a href="class-google.pubsub.v1.ListSubscriptionsResponse.html">ListSubscriptionsResponse</a></li>
+				<li><a href="class-google.pubsub.v1.ListTopicsRequest.html">ListTopicsRequest</a></li>
+				<li><a href="class-google.pubsub.v1.ListTopicsResponse.html">ListTopicsResponse</a></li>
+				<li><a href="class-google.pubsub.v1.ListTopicSubscriptionsRequest.html">ListTopicSubscriptionsRequest</a></li>
+				<li><a href="class-google.pubsub.v1.ListTopicSubscriptionsResponse.html">ListTopicSubscriptionsResponse</a></li>
+				<li><a href="class-google.pubsub.v1.ModifyAckDeadlineRequest.html">ModifyAckDeadlineRequest</a></li>
+				<li><a href="class-google.pubsub.v1.ModifyPushConfigRequest.html">ModifyPushConfigRequest</a></li>
+				<li><a href="class-Google.PubSub.v1.PublisherApi.html">PublisherApi</a></li>
+				<li><a href="class-google.pubsub.v1.PublisherClient.html">PublisherClient</a></li>
+				<li><a href="class-google.pubsub.v1.PublishRequest.html">PublishRequest</a></li>
+				<li><a href="class-google.pubsub.v1.PublishResponse.html">PublishResponse</a></li>
+				<li><a href="class-google.pubsub.v1.PubsubMessage.html">PubsubMessage</a></li>
+				<li><a href="class-google.pubsub.v1.PullRequest.html">PullRequest</a></li>
+				<li><a href="class-google.pubsub.v1.PullResponse.html">PullResponse</a></li>
+				<li><a href="class-google.pubsub.v1.PushConfig.html">PushConfig</a></li>
+				<li><a href="class-google.pubsub.v1.ReceivedMessage.html">ReceivedMessage</a></li>
+				<li class="active"><a href="class-google.pubsub.v1.SubscriberClient.html">SubscriberClient</a></li>
+				<li><a href="class-google.pubsub.v1.Subscription.html">Subscription</a></li>
+				<li><a href="class-google.pubsub.v1.Topic.html">Topic</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-google.pubsub.v1.html" title="Summary of google\pubsub\v1"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class SubscriberClient</h1>
+
+
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+Grpc\BaseStub
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>google\pubsub\v1\SubscriberClient</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-google.html">google</a>\<a href="namespace-google.pubsub.html">pubsub</a>\<a href="namespace-google.pubsub.v1.html">v1</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-google.pubsub.v1.SubscriberClient.html#3122-3175" title="Go to source code">pubsub.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-google.pubsub.v1.SubscriberClient.html#3124-3126" title="Go to source code">__construct</a>( <span> <var>$hostname</var></span>, <span> <var>$opts</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="CreateSubscription" id="_CreateSubscription">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_CreateSubscription">#</a>
+		<code><a href="source-class-google.pubsub.v1.SubscriberClient.html#3127-3132" title="Go to source code">CreateSubscription</a>( <span><code><a href="class-google.pubsub.v1.Subscription.html">google\pubsub\v1\Subscription</a></code> <var>$argument</var></span>, <span> <var>$metadata</var> = <span class="php-keyword1">array</span>()</span>, <span> <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$argument</var></dt>
+					<dd>$input</dd>
+					<dt><var>$metadata</var></dt>
+					<dd></dd>
+					<dt><var>$options</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="GetSubscription" id="_GetSubscription">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_GetSubscription">#</a>
+		<code><a href="source-class-google.pubsub.v1.SubscriberClient.html#3133-3138" title="Go to source code">GetSubscription</a>( <span><code><a href="class-google.pubsub.v1.GetSubscriptionRequest.html">google\pubsub\v1\GetSubscriptionRequest</a></code> <var>$argument</var></span>, <span> <var>$metadata</var> = <span class="php-keyword1">array</span>()</span>, <span> <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$argument</var></dt>
+					<dd>$input</dd>
+					<dt><var>$metadata</var></dt>
+					<dd></dd>
+					<dt><var>$options</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ListSubscriptions" id="_ListSubscriptions">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ListSubscriptions">#</a>
+		<code><a href="source-class-google.pubsub.v1.SubscriberClient.html#3139-3144" title="Go to source code">ListSubscriptions</a>( <span><code><a href="class-google.pubsub.v1.ListSubscriptionsRequest.html">google\pubsub\v1\ListSubscriptionsRequest</a></code> <var>$argument</var></span>, <span> <var>$metadata</var> = <span class="php-keyword1">array</span>()</span>, <span> <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$argument</var></dt>
+					<dd>$input</dd>
+					<dt><var>$metadata</var></dt>
+					<dd></dd>
+					<dt><var>$options</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="DeleteSubscription" id="_DeleteSubscription">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_DeleteSubscription">#</a>
+		<code><a href="source-class-google.pubsub.v1.SubscriberClient.html#3145-3150" title="Go to source code">DeleteSubscription</a>( <span><code><a href="class-google.pubsub.v1.DeleteSubscriptionRequest.html">google\pubsub\v1\DeleteSubscriptionRequest</a></code> <var>$argument</var></span>, <span> <var>$metadata</var> = <span class="php-keyword1">array</span>()</span>, <span> <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$argument</var></dt>
+					<dd>$input</dd>
+					<dt><var>$metadata</var></dt>
+					<dd></dd>
+					<dt><var>$options</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ModifyAckDeadline" id="_ModifyAckDeadline">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ModifyAckDeadline">#</a>
+		<code><a href="source-class-google.pubsub.v1.SubscriberClient.html#3151-3156" title="Go to source code">ModifyAckDeadline</a>( <span><code><a href="class-google.pubsub.v1.ModifyAckDeadlineRequest.html">google\pubsub\v1\ModifyAckDeadlineRequest</a></code> <var>$argument</var></span>, <span> <var>$metadata</var> = <span class="php-keyword1">array</span>()</span>, <span> <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$argument</var></dt>
+					<dd>$input</dd>
+					<dt><var>$metadata</var></dt>
+					<dd></dd>
+					<dt><var>$options</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="Acknowledge" id="_Acknowledge">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_Acknowledge">#</a>
+		<code><a href="source-class-google.pubsub.v1.SubscriberClient.html#3157-3162" title="Go to source code">Acknowledge</a>( <span><code><a href="class-google.pubsub.v1.AcknowledgeRequest.html">google\pubsub\v1\AcknowledgeRequest</a></code> <var>$argument</var></span>, <span> <var>$metadata</var> = <span class="php-keyword1">array</span>()</span>, <span> <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$argument</var></dt>
+					<dd>$input</dd>
+					<dt><var>$metadata</var></dt>
+					<dd></dd>
+					<dt><var>$options</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="Pull" id="_Pull">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_Pull">#</a>
+		<code><a href="source-class-google.pubsub.v1.SubscriberClient.html#3163-3168" title="Go to source code">Pull</a>( <span><code><a href="class-google.pubsub.v1.PullRequest.html">google\pubsub\v1\PullRequest</a></code> <var>$argument</var></span>, <span> <var>$metadata</var> = <span class="php-keyword1">array</span>()</span>, <span> <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$argument</var></dt>
+					<dd>$input</dd>
+					<dt><var>$metadata</var></dt>
+					<dd></dd>
+					<dt><var>$options</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="ModifyPushConfig" id="_ModifyPushConfig">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_ModifyPushConfig">#</a>
+		<code><a href="source-class-google.pubsub.v1.SubscriberClient.html#3169-3174" title="Go to source code">ModifyPushConfig</a>( <span><code><a href="class-google.pubsub.v1.ModifyPushConfigRequest.html">google\pubsub\v1\ModifyPushConfigRequest</a></code> <var>$argument</var></span>, <span> <var>$metadata</var> = <span class="php-keyword1">array</span>()</span>, <span> <var>$options</var> = <span class="php-keyword1">array</span>()</span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$argument</var></dt>
+					<dd>$input</dd>
+					<dt><var>$metadata</var></dt>
+					<dd></dd>
+					<dt><var>$options</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
