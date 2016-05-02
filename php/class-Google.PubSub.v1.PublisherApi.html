@@ -19,21 +19,11 @@
 				<h3>Namespaces</h3>
 			<ul>
 				<li class="active">
-					<a href="namespace-google.html">
-						google					</a>
-
-						</li>
-				<li>
 					<a href="namespace-Google.html">
 						Google<span></span>
 					</a>
 
 						<ul>
-				<li>
-					<a href="namespace-google.api.html">
-						api					</a>
-
-						</li>
 				<li>
 					<a href="namespace-Google.GAX.html">
 						GAX<span></span>
@@ -46,34 +36,18 @@
 
 						</li>
 							</ul></li>
-				<li>
-					<a href="namespace-google.protobuf.html">
-						protobuf					</a>
-
-						</li>
 				<li class="active">
-					<a href="namespace-google.pubsub.html">
-						pubsub<span></span>
+					<a href="namespace-Google.PubSub.html">
+						PubSub<span></span>
 					</a>
 
 						<ul>
 				<li class="active">
-					<a href="namespace-google.pubsub.v1.html">
-						v1<span></span>
-					</a>
-
-						<ul>
-				<li>
-					<a href="namespace-google.pubsub.v1.PubsubMessage.html">
-						PubsubMessage					</a>
+					<a href="namespace-Google.PubSub.v1.html">
+						v1					</a>
 
 						</li>
-				<li>
-					<a href="namespace-google.pubsub.v1.PushConfig.html">
-						PushConfig					</a>
-
-						</li>
-							</ul></li></ul></li></ul></li>
+							</ul></li></ul></li>
 				<li>
 					<a href="namespace-Jison.html">
 						Jison					</a>
@@ -88,31 +62,7 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-google.pubsub.v1.AcknowledgeRequest.html">AcknowledgeRequest</a></li>
-				<li><a href="class-google.pubsub.v1.DeleteSubscriptionRequest.html">DeleteSubscriptionRequest</a></li>
-				<li><a href="class-google.pubsub.v1.DeleteTopicRequest.html">DeleteTopicRequest</a></li>
-				<li><a href="class-google.pubsub.v1.GetSubscriptionRequest.html">GetSubscriptionRequest</a></li>
-				<li><a href="class-google.pubsub.v1.GetTopicRequest.html">GetTopicRequest</a></li>
-				<li><a href="class-google.pubsub.v1.ListSubscriptionsRequest.html">ListSubscriptionsRequest</a></li>
-				<li><a href="class-google.pubsub.v1.ListSubscriptionsResponse.html">ListSubscriptionsResponse</a></li>
-				<li><a href="class-google.pubsub.v1.ListTopicsRequest.html">ListTopicsRequest</a></li>
-				<li><a href="class-google.pubsub.v1.ListTopicsResponse.html">ListTopicsResponse</a></li>
-				<li><a href="class-google.pubsub.v1.ListTopicSubscriptionsRequest.html">ListTopicSubscriptionsRequest</a></li>
-				<li><a href="class-google.pubsub.v1.ListTopicSubscriptionsResponse.html">ListTopicSubscriptionsResponse</a></li>
-				<li><a href="class-google.pubsub.v1.ModifyAckDeadlineRequest.html">ModifyAckDeadlineRequest</a></li>
-				<li><a href="class-google.pubsub.v1.ModifyPushConfigRequest.html">ModifyPushConfigRequest</a></li>
 				<li class="active"><a href="class-Google.PubSub.v1.PublisherApi.html">PublisherApi</a></li>
-				<li><a href="class-google.pubsub.v1.PublisherClient.html">PublisherClient</a></li>
-				<li><a href="class-google.pubsub.v1.PublishRequest.html">PublishRequest</a></li>
-				<li><a href="class-google.pubsub.v1.PublishResponse.html">PublishResponse</a></li>
-				<li><a href="class-google.pubsub.v1.PubsubMessage.html">PubsubMessage</a></li>
-				<li><a href="class-google.pubsub.v1.PullRequest.html">PullRequest</a></li>
-				<li><a href="class-google.pubsub.v1.PullResponse.html">PullResponse</a></li>
-				<li><a href="class-google.pubsub.v1.PushConfig.html">PushConfig</a></li>
-				<li><a href="class-google.pubsub.v1.ReceivedMessage.html">ReceivedMessage</a></li>
-				<li><a href="class-google.pubsub.v1.SubscriberClient.html">SubscriberClient</a></li>
-				<li><a href="class-google.pubsub.v1.Subscription.html">Subscription</a></li>
-				<li><a href="class-google.pubsub.v1.Topic.html">Topic</a></li>
 			</ul>
 
 
@@ -139,7 +89,7 @@
 				<a href="index.html" title="Overview"><span>Overview</span></a>
 			</li>
 			<li>
-				<a href="namespace-google.pubsub.v1.html" title="Summary of google\pubsub\v1"><span>Namespace</span></a>
+				<a href="namespace-Google.PubSub.v1.html" title="Summary of Google\PubSub\v1"><span>Namespace</span></a>
 			</li>
 			<li class="active">
 <span>Class</span>			</li>
@@ -154,6 +104,28 @@
 	<h1>Class PublisherApi</h1>
 
 
+	<div class="description">
+	<p>Service Description: The service that an application uses to manipulate topics, and to send
+messages to a topic.</p>
+
+<p>&lt;</p>
+
+<p>p>This class provides the ability to make remote calls to the backing service through method
+calls that map to API methods. Sample code to get started:</p>
+
+<pre>&lt;code&gt;
+<span class="php-var">$publisherApi</span> = <span class="php-keyword1">new</span> PublisherApi();
+<span class="php-var">$topicName</span> = PublisherApi::formatTopicName(<span class="php-quote">&quot;(your project here)&quot;</span>, <span class="php-quote">&quot;my-topic&quot;</span>);
+<span class="php-var">$topic</span> = <span class="php-var">$publisherApi</span>-&gt;createTopic(<span class="php-var">$topicName</span>);
+&lt;/code&gt;</pre>
+
+<p>&lt;</p>
+
+<p>p>Many parameters require resource names to be formatted in a particular way. To assist
+with these names, this class includes a format method for each type of name, and additionally
+a parse method to extract the individual identifiers contained within names that are
+returned.</p>
+	</div>
 
 
 
@@ -166,10 +138,10 @@
 	<div class="info">
 		
 		
-		<b>Namespace:</b> <a href="namespace-google.html">google</a>\<a href="namespace-google.pubsub.html">pubsub</a>\<a href="namespace-google.pubsub.v1.html">v1</a><br>
+		<b>Namespace:</b> <a href="namespace-Google.html">Google</a>\<a href="namespace-Google.PubSub.html">PubSub</a>\<a href="namespace-Google.PubSub.v1.html">v1</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Google.PubSub.v1.PublisherApi.html#15-259" title="Go to source code">PublisherApi.php</a>
+			<b>Located at</b> <a href="source-class-Google.PubSub.v1.PublisherApi.html#16-386" title="Go to source code">PublisherApi.php</a>
 		<br>
 	</div>
 
@@ -189,7 +161,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_initClass">#</a>
-		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#42-68" title="Go to source code">initClass</a>( )</code>
+		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#69-95" title="Go to source code">initClass</a>( )</code>
 
 		<div class="description short">
 			<p>This should not be called outside of the implementation file.</p>
@@ -219,14 +191,16 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_formatProjectName">#</a>
-		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#70-74" title="Go to source code">formatProjectName</a>( <span> <var>$project</var></span> )</code>
+		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#97-105" title="Go to source code">formatProjectName</a>( <span> <var>$project</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Formats a string containing the fully-qualified path to represent
+a project resource.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Formats a string containing the fully-qualified path to represent
+a project resource.</p>
 
 
 
@@ -249,14 +223,16 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_formatTopicName">#</a>
-		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#76-80" title="Go to source code">formatTopicName</a>( <span> <var>$project</var></span>, <span> <var>$topic</var></span> )</code>
+		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#107-115" title="Go to source code">formatTopicName</a>( <span> <var>$project</var></span>, <span> <var>$topic</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Formats a string containing the fully-qualified path to represent
+a topic resource.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Formats a string containing the fully-qualified path to represent
+a topic resource.</p>
 
 
 
@@ -279,14 +255,16 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseProjectFromProjectName">#</a>
-		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#82-85" title="Go to source code">parseProjectFromProjectName</a>( <span> <var>$projectName</var></span> )</code>
+		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#117-124" title="Go to source code">parseProjectFromProjectName</a>( <span> <var>$projectName</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Parses the project from the given fully-qualified path which
+represents a project resource.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Parses the project from the given fully-qualified path which
+represents a project resource.</p>
 
 
 
@@ -309,14 +287,16 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseProjectFromTopicName">#</a>
-		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#87-90" title="Go to source code">parseProjectFromTopicName</a>( <span> <var>$topicName</var></span> )</code>
+		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#126-133" title="Go to source code">parseProjectFromTopicName</a>( <span> <var>$topicName</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Parses the project from the given fully-qualified path which
+represents a topic resource.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Parses the project from the given fully-qualified path which
+represents a topic resource.</p>
 
 
 
@@ -339,14 +319,16 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_parseTopicFromTopicName">#</a>
-		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#92-95" title="Go to source code">parseTopicFromTopicName</a>( <span> <var>$topicName</var></span> )</code>
+		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#135-142" title="Go to source code">parseTopicFromTopicName</a>( <span> <var>$topicName</var></span> )</code>
 
 		<div class="description short">
-			
+			<p>Parses the topic from the given fully-qualified path which
+represents a topic resource.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Parses the topic from the given fully-qualified path which
+represents a topic resource.</p>
 
 
 
@@ -369,7 +351,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#102-172" title="Go to source code">__construct</a>( <span>array <var>$options</var> = []</span> )</code>
+		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#145-225" title="Go to source code">__construct</a>( <span>array <var>$options</var> = []</span> )</code>
 
 		<div class="description short">
 			<p>Constructor.</p>
@@ -423,25 +405,45 @@
 		<td class="attributes"><code>
 			 public 
 
-			
+			google\pubsub\v1\Topic
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createTopic">#</a>
-		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#174-185" title="Go to source code">createTopic</a>( <span> <var>$name</var></span>, <span><code><a href="class-Google.GAX.CallSettings.html">Google\GAX\CallSettings</a></code> <var>$settings</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#227-251" title="Go to source code">createTopic</a>( <span>string <var>$name</var></span>, <span><code><a href="class-Google.GAX.CallSettings.html">Google\GAX\CallSettings</a></code> <var>$settings</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			
+			<p>Creates the given topic with the given name.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Creates the given topic with the given name.</p>
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><p>The name of the topic. It must have the format
+<code>"projects/{project}/topics/{topic}"</code>. <code>{topic}</code> must start with a letter,
+and contain only letters (<code>[A-Za-z]</code>), numbers (<code>[0-9]</code>), dashes (<code>-</code>),
+underscores (<code>_</code>), periods (<code>.</code>), tildes (<code>~</code>), plus (<code>+</code>) or percent
+signs (<code>%</code>). It must be between 3 and 255 characters in length, and it
+must not start with <code>"goog"</code>.</p></dd>
+					<dt><var>$settings</var></dt>
+					<dd></dd>
+				</dl></div>
 
+				<h4>Returns</h4>
+				<div class="list">
+					google\pubsub\v1\Topic
+				</div>
 
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-Google.GAX.ApiException.html">Google\GAX\ApiException</a></code><br>if the remote call fails
+				</div>
 
 
 
@@ -453,25 +455,46 @@
 		<td class="attributes"><code>
 			 public 
 
-			
+			google\pubsub\v1\PublishResponse
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_publish">#</a>
-		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#187-201" title="Go to source code">publish</a>( <span> <var>$topic</var></span>, <span> <var>$messages</var></span>, <span><code><a href="class-Google.GAX.CallSettings.html">Google\GAX\CallSettings</a></code> <var>$settings</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#253-278" title="Go to source code">publish</a>( <span>string <var>$topic</var></span>, <span>array <var>$messages</var></span>, <span><code><a href="class-Google.GAX.CallSettings.html">Google\GAX\CallSettings</a></code> <var>$settings</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			
+			<p>Adds one or more messages to the topic. Generates <code>NOT_FOUND</code> if the topic
+does not exist. The message payload must not be empty; it must contain
+either a non-empty data field, or at least one attribute.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Adds one or more messages to the topic. Generates <code>NOT_FOUND</code> if the topic
+does not exist. The message payload must not be empty; it must contain
+either a non-empty data field, or at least one attribute.</p>
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$topic</var></dt>
+					<dd>The messages in the request will be published on this topic.</dd>
+					<dt><var>$messages</var></dt>
+					<dd>The messages to publish.</dd>
+					<dt><var>$settings</var></dt>
+					<dd></dd>
+				</dl></div>
 
+				<h4>Returns</h4>
+				<div class="list">
+					google\pubsub\v1\PublishResponse
+				</div>
 
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-Google.GAX.ApiException.html">Google\GAX\ApiException</a></code><br>if the remote call fails
+				</div>
 
 
 
@@ -483,25 +506,40 @@
 		<td class="attributes"><code>
 			 public 
 
-			
+			google\pubsub\v1\Topic
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getTopic">#</a>
-		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#203-214" title="Go to source code">getTopic</a>( <span> <var>$topic</var></span>, <span><code><a href="class-Google.GAX.CallSettings.html">Google\GAX\CallSettings</a></code> <var>$settings</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#280-299" title="Go to source code">getTopic</a>( <span>string <var>$topic</var></span>, <span><code><a href="class-Google.GAX.CallSettings.html">Google\GAX\CallSettings</a></code> <var>$settings</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			
+			<p>Gets the configuration of a topic.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Gets the configuration of a topic.</p>
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$topic</var></dt>
+					<dd>The name of the topic to get.</dd>
+					<dt><var>$settings</var></dt>
+					<dd></dd>
+				</dl></div>
 
+				<h4>Returns</h4>
+				<div class="list">
+					google\pubsub\v1\Topic
+				</div>
 
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-Google.GAX.ApiException.html">Google\GAX\ApiException</a></code><br>if the remote call fails
+				</div>
 
 
 
@@ -513,25 +551,40 @@
 		<td class="attributes"><code>
 			 public 
 
-			
+			<code><a href="class-Google.GAX.PageAccessor.html">Google\GAX\PageAccessor</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_listTopics">#</a>
-		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#216-227" title="Go to source code">listTopics</a>( <span> <var>$project</var></span>, <span><code><a href="class-Google.GAX.CallSettings.html">Google\GAX\CallSettings</a></code> <var>$settings</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#301-323" title="Go to source code">listTopics</a>( <span>string <var>$project</var></span>, <span><code><a href="class-Google.GAX.CallSettings.html">Google\GAX\CallSettings</a></code> <var>$settings</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			
+			<p>Lists matching topics.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Lists matching topics.</p>
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$project</var></dt>
+					<dd>The name of the cloud project that topics belong to.</dd>
+					<dt><var>$settings</var></dt>
+					<dd></dd>
+				</dl></div>
 
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Google.GAX.PageAccessor.html">Google\GAX\PageAccessor</a></code>
+				</div>
 
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-Google.GAX.ApiException.html">Google\GAX\ApiException</a></code><br>if the remote call fails
+				</div>
 
 
 
@@ -543,25 +596,40 @@
 		<td class="attributes"><code>
 			 public 
 
-			
+			<code><a href="class-Google.GAX.PageAccessor.html">Google\GAX\PageAccessor</a></code>
 			
 			</code>
 		</td>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_listTopicSubscriptions">#</a>
-		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#229-240" title="Go to source code">listTopicSubscriptions</a>( <span> <var>$topic</var></span>, <span><code><a href="class-Google.GAX.CallSettings.html">Google\GAX\CallSettings</a></code> <var>$settings</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#325-348" title="Go to source code">listTopicSubscriptions</a>( <span>string <var>$topic</var></span>, <span><code><a href="class-Google.GAX.CallSettings.html">Google\GAX\CallSettings</a></code> <var>$settings</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			
+			<p>Lists the name of the subscriptions for this topic.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Lists the name of the subscriptions for this topic.</p>
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$topic</var></dt>
+					<dd>The name of the topic that subscriptions are attached to.</dd>
+					<dt><var>$settings</var></dt>
+					<dd></dd>
+				</dl></div>
 
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-Google.GAX.PageAccessor.html">Google\GAX\PageAccessor</a></code>
+				</div>
 
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-Google.GAX.ApiException.html">Google\GAX\ApiException</a></code><br>if the remote call fails
+				</div>
 
 
 
@@ -580,18 +648,37 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_deleteTopic">#</a>
-		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#242-253" title="Go to source code">deleteTopic</a>( <span> <var>$topic</var></span>, <span><code><a href="class-Google.GAX.CallSettings.html">Google\GAX\CallSettings</a></code> <var>$settings</var> = <span class="php-keyword1">null</span></span> )</code>
+		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#350-372" title="Go to source code">deleteTopic</a>( <span>string <var>$topic</var></span>, <span><code><a href="class-Google.GAX.CallSettings.html">Google\GAX\CallSettings</a></code> <var>$settings</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
-			
+			<p>Deletes the topic with the given name. Generates <code>NOT_FOUND</code> if the topic
+does not exist. After a topic is deleted, a new topic may be created with
+the same name; this is an entirely new topic with none of the old
+configuration or subscriptions. Existing subscriptions to this topic are
+not deleted, but their <code>topic</code> field is set to <code>_deleted-topic_</code>.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Deletes the topic with the given name. Generates <code>NOT_FOUND</code> if the topic
+does not exist. After a topic is deleted, a new topic may be created with
+the same name; this is an entirely new topic with none of the old
+configuration or subscriptions. Existing subscriptions to this topic are
+not deleted, but their <code>topic</code> field is set to <code>_deleted-topic_</code>.</p>
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$topic</var></dt>
+					<dd>Name of the topic to delete.</dd>
+					<dt><var>$settings</var></dt>
+					<dd></dd>
+				</dl></div>
 
 
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-Google.GAX.ApiException.html">Google\GAX\ApiException</a></code><br>if the remote call fails
+				</div>
 
 
 
@@ -610,14 +697,16 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_close">#</a>
-		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#255-258" title="Go to source code">close</a>( )</code>
+		<code><a href="source-class-Google.PubSub.v1.PublisherApi.html#374-381" title="Go to source code">close</a>( )</code>
 
 		<div class="description short">
-			
+			<p>Initiates an orderly shutdown in which preexisting calls continue but new
+calls are immediately cancelled.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
+			<p>Initiates an orderly shutdown in which preexisting calls continue but new
+calls are immediately cancelled.</p>
 
 
 
@@ -644,7 +733,7 @@
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-Google.PubSub.v1.PublisherApi.html#17-20" title="Go to source code"><b>SERVICE_ADDRESS</b></a>
+				<a href="source-class-Google.PubSub.v1.PublisherApi.html#38-41" title="Go to source code"><b>SERVICE_ADDRESS</b></a>
 			</code>
 
 			<div class="description short">
@@ -668,7 +757,7 @@
 		<td class="attributes"><code>integer</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-Google.PubSub.v1.PublisherApi.html#22-25" title="Go to source code"><b>DEFAULT_SERVICE_PORT</b></a>
+				<a href="source-class-Google.PubSub.v1.PublisherApi.html#43-46" title="Go to source code"><b>DEFAULT_SERVICE_PORT</b></a>
 			</code>
 
 			<div class="description short">
@@ -692,7 +781,7 @@
 		<td class="attributes"><code>integer</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-Google.PubSub.v1.PublisherApi.html#27-30" title="Go to source code"><b>DEFAULT_TIMEOUT_MILLIS</b></a>
+				<a href="source-class-Google.PubSub.v1.PublisherApi.html#48-51" title="Go to source code"><b>DEFAULT_TIMEOUT_MILLIS</b></a>
 			</code>
 
 			<div class="description short">
@@ -716,7 +805,7 @@
 		<td class="attributes"><code>string</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-Google.PubSub.v1.PublisherApi.html#32" title="Go to source code"><b>_GAX_VERSION</b></a>
+				<a href="source-class-Google.PubSub.v1.PublisherApi.html#53" title="Go to source code"><b>_GAX_VERSION</b></a>
 			</code>
 
 			<div class="description short">
@@ -732,6 +821,54 @@
 			<div>
 				<a href="#_GAX_VERSION" class="anchor">#</a>
 				<code><span class="php-quote">'0.1.0'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="_CODEGEN_NAME" id="_CODEGEN_NAME">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Google.PubSub.v1.PublisherApi.html#56" title="Go to source code"><b>_CODEGEN_NAME</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#_CODEGEN_NAME" class="anchor">#</a>
+				<code><span class="php-quote">'GAPIC'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="_CODEGEN_VERSION" id="_CODEGEN_VERSION">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Google.PubSub.v1.PublisherApi.html#57" title="Go to source code"><b>_CODEGEN_VERSION</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#_CODEGEN_VERSION" class="anchor">#</a>
+				<code><span class="php-quote">'0.0.0'</span></code>
 			</div>
 		</td>
 	</tr>

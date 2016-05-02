@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class Google\GAX\PageStreamingDescriptor</title>
+	<title>Class Google\GAX\AgentHeaderDescriptor</title>
 
 	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
 
@@ -62,14 +62,14 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
-				<li><a href="class-Google.GAX.AgentHeaderDescriptor.html">AgentHeaderDescriptor</a></li>
+				<li class="active"><a href="class-Google.GAX.AgentHeaderDescriptor.html">AgentHeaderDescriptor</a></li>
 				<li><a href="class-Google.GAX.ApiCallable.html">ApiCallable</a></li>
 				<li><a href="class-Google.GAX.BackoffSettings.html">BackoffSettings</a></li>
 				<li><a href="class-Google.GAX.CallSettings.html">CallSettings</a></li>
 				<li><a href="class-Google.GAX.GrpcBootstrap.html">GrpcBootstrap</a></li>
 				<li><a href="class-Google.GAX.GrpcConstants.html">GrpcConstants</a></li>
 				<li><a href="class-Google.GAX.PageAccessor.html">PageAccessor</a></li>
-				<li class="active"><a href="class-Google.GAX.PageStreamingDescriptor.html">PageStreamingDescriptor</a></li>
+				<li><a href="class-Google.GAX.PageStreamingDescriptor.html">PageStreamingDescriptor</a></li>
 				<li><a href="class-Google.GAX.Parser.html">Parser</a></li>
 				<li><a href="class-Google.GAX.PathTemplate.html">PathTemplate</a></li>
 				<li><a href="class-Google.GAX.RetrySettings.html">RetrySettings</a></li>
@@ -116,11 +116,11 @@
 	</div>
 
 <div id="content" class="class">
-	<h1>Class PageStreamingDescriptor</h1>
+	<h1>Class AgentHeaderDescriptor</h1>
 
 
 	<div class="description">
-	<p>Holds the description information used for page streaming.</p>
+	<p>Encapsulates the custom GAPIC header information.</p>
 	</div>
 
 
@@ -137,7 +137,7 @@
 		<b>Namespace:</b> <a href="namespace-Google.html">Google</a>\<a href="namespace-Google.GAX.html">GAX</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Google.GAX.PageStreamingDescriptor.html#36-87" title="Go to source code">PageStreamingDescriptor.php</a>
+			<b>Located at</b> <a href="source-class-Google.GAX.AgentHeaderDescriptor.html#37-94" title="Go to source code">AgentHeaderDescriptor.php</a>
 		<br>
 	</div>
 
@@ -157,7 +157,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code><a href="source-class-Google.GAX.PageStreamingDescriptor.html#45-60" title="Go to source code">__construct</a>( <span>array <var>$descriptor</var></span> )</code>
+		<code><a href="source-class-Google.GAX.AgentHeaderDescriptor.html#51-71" title="Go to source code">__construct</a>( <span>array <var>$headerInfo</var></span> )</code>
 
 		<div class="description short">
 			
@@ -169,7 +169,7 @@
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$descriptor</var></dt>
+					<dt><var>$headerInfo</var></dt>
 					<dd><p>{
     Required.</p></dd>
 				</dl></div>
@@ -178,9 +178,12 @@
 
 				<h4>Type</h4>
 				<div class="list">
-						string $requestPageTokenField the page token field in the request object.<br>
-						string $responsePageTokenField the page token field in the response object.<br>
-						<p>string $resourceField the resource field in the response object.
+						string $clientName the name of the client application.<br>
+						string $clientVersion the version of the client application.<br>
+						string $codeGenName the code generator name of the client library.<br>
+						string $codeGenVersion the code generator version of the client library.<br>
+						string $gaxVersion the GAX version.<br>
+						<p>string $phpVersion the PHP version.
 }</p><br>
 				</div>
 
@@ -188,7 +191,7 @@
 		</div>
 		</div></td>
 	</tr>
-	<tr data-order="getRequestPageTokenField" id="_getRequestPageTokenField">
+	<tr data-order="getHeader" id="_getHeader">
 
 		<td class="attributes"><code>
 			 public 
@@ -199,75 +202,15 @@
 		</td>
 
 		<td class="name"><div>
-		<a class="anchor" href="#_getRequestPageTokenField">#</a>
-		<code><a href="source-class-Google.GAX.PageStreamingDescriptor.html#62-65" title="Go to source code">getRequestPageTokenField</a>( )</code>
+		<a class="anchor" href="#_getHeader">#</a>
+		<code><a href="source-class-Google.GAX.AgentHeaderDescriptor.html#73-81" title="Go to source code">getHeader</a>( )</code>
 
 		<div class="description short">
-			
+			<p>Returns an associative array that contains GAPIC header metadata.</p>
 		</div>
 
 		<div class="description detailed hidden">
-			
-
-
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getResponsePageTokenField" id="_getResponsePageTokenField">
-
-		<td class="attributes"><code>
-			 public 
-
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getResponsePageTokenField">#</a>
-		<code><a href="source-class-Google.GAX.PageStreamingDescriptor.html#67-70" title="Go to source code">getResponsePageTokenField</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
-
-
-
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getResourceField" id="_getResourceField">
-
-		<td class="attributes"><code>
-			 public 
-
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getResourceField">#</a>
-		<code><a href="source-class-Google.GAX.PageStreamingDescriptor.html#72-75" title="Go to source code">getResourceField</a>( )</code>
-
-		<div class="description short">
-			
-		</div>
-
-		<div class="description detailed hidden">
-			
+			<p>Returns an associative array that contains GAPIC header metadata.</p>
 
 
 
@@ -287,6 +230,33 @@
 
 
 
+	<table class="summary constants" id="constants">
+	<caption>Constants summary</caption>
+	<tr data-order="AGENT_HEADER_KEY" id="AGENT_HEADER_KEY">
+
+		<td class="attributes"><code>string</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Google.GAX.AgentHeaderDescriptor.html#42" title="Go to source code"><b>AGENT_HEADER_KEY</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#AGENT_HEADER_KEY" class="anchor">#</a>
+				<code><span class="php-quote">'x-google-apis-agent'</span></code>
+			</div>
+		</td>
+	</tr>
+	</table>
 
 
 

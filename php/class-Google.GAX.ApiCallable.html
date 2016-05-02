@@ -18,22 +18,12 @@
 		<div id="groups">
 				<h3>Namespaces</h3>
 			<ul>
-				<li>
-					<a href="namespace-google.html">
-						google					</a>
-
-						</li>
 				<li class="active">
 					<a href="namespace-Google.html">
 						Google<span></span>
 					</a>
 
 						<ul>
-				<li>
-					<a href="namespace-google.api.html">
-						api					</a>
-
-						</li>
 				<li class="active">
 					<a href="namespace-Google.GAX.html">
 						GAX<span></span>
@@ -47,33 +37,17 @@
 						</li>
 							</ul></li>
 				<li>
-					<a href="namespace-google.protobuf.html">
-						protobuf					</a>
-
-						</li>
-				<li>
-					<a href="namespace-google.pubsub.html">
-						pubsub<span></span>
+					<a href="namespace-Google.PubSub.html">
+						PubSub<span></span>
 					</a>
 
 						<ul>
 				<li>
-					<a href="namespace-google.pubsub.v1.html">
-						v1<span></span>
-					</a>
-
-						<ul>
-				<li>
-					<a href="namespace-google.pubsub.v1.PubsubMessage.html">
-						PubsubMessage					</a>
+					<a href="namespace-Google.PubSub.v1.html">
+						v1					</a>
 
 						</li>
-				<li>
-					<a href="namespace-google.pubsub.v1.PushConfig.html">
-						PushConfig					</a>
-
-						</li>
-							</ul></li></ul></li></ul></li>
+							</ul></li></ul></li>
 				<li>
 					<a href="namespace-Jison.html">
 						Jison					</a>
@@ -88,6 +62,7 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-Google.GAX.AgentHeaderDescriptor.html">AgentHeaderDescriptor</a></li>
 				<li class="active"><a href="class-Google.GAX.ApiCallable.html">ApiCallable</a></li>
 				<li><a href="class-Google.GAX.BackoffSettings.html">BackoffSettings</a></li>
 				<li><a href="class-Google.GAX.CallSettings.html">CallSettings</a></li>
@@ -162,7 +137,7 @@
 		<b>Namespace:</b> <a href="namespace-Google.html">Google</a>\<a href="namespace-Google.GAX.html">GAX</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-Google.GAX.ApiCallable.html#38-146" title="Go to source code">ApiCallable.php</a>
+			<b>Located at</b> <a href="source-class-Google.GAX.ApiCallable.html#38-175" title="Go to source code">ApiCallable.php</a>
 		<br>
 	</div>
 
@@ -182,7 +157,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#_createApiCall">#</a>
-		<code><a href="source-class-Google.GAX.ApiCallable.html#114-145" title="Go to source code">createApiCall</a>( <span>Grpc\BaseStub <var>$stub</var></span>, <span>string <var>$methodName</var></span>, <span><code><a href="class-Google.GAX.CallSettings.html">Google\GAX\CallSettings</a></code> <var>$settings</var></span> )</code>
+		<code><a href="source-class-Google.GAX.ApiCallable.html#135-174" title="Go to source code">createApiCall</a>( <span>Grpc\BaseStub <var>$stub</var></span>, <span>string <var>$methodName</var></span>, <span><code><a href="class-Google.GAX.CallSettings.html">Google\GAX\CallSettings</a></code> <var>$settings</var></span>, <span>array <var>$options</var> = []</span> )</code>
 
 		<div class="description short">
 			
@@ -199,11 +174,22 @@
 					<dt><var>$methodName</var></dt>
 					<dd>the method name on the stub to call.</dd>
 					<dt><var>$settings</var></dt>
-					<dd>call settings to use for this call.</dd>
+					<dd>the call settings to use for this call.</dd>
+					<dt><var>$options</var></dt>
+					<dd><p>{
+    Optional.</p></dd>
 				</dl></div>
 
 
 
+				<h4>Type</h4>
+				<div class="list">
+						<p>\Google\GAX\PageStreamingDescriptor $pageStreamingDescriptor
+          the descriptor used for page-streaming.</p><br>
+						<p>\Google\GAX\AgentHeaderDescriptor $headerDescriptor
+          the descriptor used for creating GAPIC header.
+}</p><br>
+				</div>
 
 
 		</div>
@@ -244,12 +230,36 @@
 			</div>
 		</td>
 	</tr>
+	<tr data-order="GRPC_CALLABLE_METADATA_INDEX" id="GRPC_CALLABLE_METADATA_INDEX">
+
+		<td class="attributes"><code>integer</code></td>
+		<td class="name">
+			<code>
+				<a href="source-class-Google.GAX.ApiCallable.html#44" title="Go to source code"><b>GRPC_CALLABLE_METADATA_INDEX</b></a>
+			</code>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#GRPC_CALLABLE_METADATA_INDEX" class="anchor">#</a>
+				<code><span class="php-num">1</span></code>
+			</div>
+		</td>
+	</tr>
 	<tr data-order="GRPC_CALLABLE_OPTION_INDEX" id="GRPC_CALLABLE_OPTION_INDEX">
 
 		<td class="attributes"><code>integer</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-Google.GAX.ApiCallable.html#44" title="Go to source code"><b>GRPC_CALLABLE_OPTION_INDEX</b></a>
+				<a href="source-class-Google.GAX.ApiCallable.html#45" title="Go to source code"><b>GRPC_CALLABLE_OPTION_INDEX</b></a>
 			</code>
 
 			<div class="description short">
@@ -273,7 +283,7 @@
 		<td class="attributes"><code>integer</code></td>
 		<td class="name">
 			<code>
-				<a href="source-class-Google.GAX.ApiCallable.html#45" title="Go to source code"><b>GRPC_RESPONSE_STATUS_INDEX</b></a>
+				<a href="source-class-Google.GAX.ApiCallable.html#46" title="Go to source code"><b>GRPC_RESPONSE_STATUS_INDEX</b></a>
 			</code>
 
 			<div class="description short">
