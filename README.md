@@ -46,7 +46,7 @@ public class PubSubSample {
 
   public static void main(String[] args) throws Exception {
 
-    try (PublisherApi publisher = PublisherApi.defaultInstance()) {
+    try (PublisherApi publisher = PublisherApi.createWithDefaults()) {
       String project = "{Your project name}";
       String topic = "my-first-topic";
 
