@@ -75,9 +75,7 @@
           <goals><goal>exec</goal></goals>
         </execution></executions>
         <configuration>
-          <!-- Replace this with your full main class path.
-               eg: com.google.pubsub.client.app.CreateTopic -->
-          <mainClass>{ Main class }</mainClass>
+          <mainClass>com.google.pubsub.client.app.PubSubSample</mainClass>
         </configuration>
       </plugin>
     </plugins>
