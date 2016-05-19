@@ -2,10 +2,6 @@ Google Cloud Java Pub/Sub Client
 ================================
 
 Java idiomatic client for [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/) services.
-
--  [Home](http://shinfan.github.io/)
--  [API Documentation](http://shinfan.github.io/api/)
-
 This client supports the following Google Cloud Platform services:
 
 - [Publisher API](http://shinfan.github.io/api/index.html?com/google/cloud/pubsub/spi/v1/PublisherApi.html)
@@ -19,10 +15,8 @@ Prerequisites
 
 Installation
 ----------
-Currently the latest pub/sub artifact has been published to our internal repo.
-To install it, use this [pom file](http://shinfan.github.io/pom.xml) as a quick starting point.
-##### Note
-Replace "{ Main class }" with your own main class path.
+
+To install, it is sufficient to copy this [pom.xml](http://shinfan.github.io/pom.xml) into your project directory.
 
 Authentication
 --------------
@@ -38,18 +32,30 @@ At this point, you are now authenticated to make calls to Pub/Sub and other Goog
 Examples
 -------------
 
+The [documentation](http://shinfan.github.io/api/index.html?com/google/cloud/pubsub/spi/v1/package-summary.html)
+includes simple examples for every API method. Please read it through for more usage samples.
+
+
 ```java
+package com.google.pubsub.client.app;
+
 import com.google.cloud.pubsub.spi.v1.PublisherApi;
 import com.google.pubsub.v1.Topic;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PubSubSample {
 
   public static void main(String[] args) throws Exception {
+    Logger.getLogger("").setLevel(Level.WARNING);
 
     try (PublisherApi publisher = PublisherApi.createWithDefaults()) {
       String project = "{Your project name}";
       String topic = "my-first-topic";
 
+      // See API documentation for usage samples of other methods:
+      // http://shinfan.github.io/api/index.html?com/google/cloud/pubsub/spi/v1/PublisherApi.html
       String topicName = PublisherApi.formatTopicName(project, topic);
       Topic createdTopic = publisher.createTopic(topicName);
       System.out.println(String.format("created topic with name %s", createdTopic.getName()));
@@ -58,24 +64,24 @@ public class PubSubSample {
 }
 ```
 
-To see more sample usages, please read through the [API reference](http://shinfan.github.io/api/index.html?com/google/cloud/pubsub/spi/v1/package-summary.html).
+Place the code above in a file at the location:
 
-The documentation for each API method includes simple examples.
-
+```
+src/main/java/com/google/pubsub/client/app/PubSubSample.java
+```
 
 Execution
 --------------
 
-To execute your client app from the command line, you need to add your main class path to the pom file
-(see the Installation section).
-Once done, run the following commands:
+To execute your client app from the command line, run the following commands (which assume that
+you put your app in the suggested location):
 
 ```
-$ mvn compile
-$ mvn -e exec:java
+$ mvn package
+$ java -XX:-PrintWarnings -jar target/pubsub-client-app-0.0.0-jar-with-dependencies.jar
 ```
 
-Note that you need to re-run `mvn compile` every time you make a change before executing `mvn -e exec:java` again.
+Note that you need to re-run `mvn package` every time you make a change before executing your sample app again.
 
 You can also execute your app in your IDEs. Note there is [a known compatibility issue](https://github.com/trustin/os-maven-plugin#issues-with-eclipse-m2e-or-other-ides)
 with Eclipse and maven-os-plugin.
